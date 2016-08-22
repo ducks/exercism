@@ -58,11 +58,13 @@ impl Robot {
     }
 
     pub fn instructions(self, instructions: &str) -> Self {
-      println!("{}", instructions);
-      match instructions.chars() {
-        "A" => self.advance(),
-        "L" => self.turn_left(),
-        "R" => self.turn_right()
+      for c in instructions.chars() {
+        match c {
+          'A' => self.advance(),
+          'R' => self.turn_right(),
+          'L' => self.turn_left(),
+          _ => println!("{}", "nothing")
+        }
       }
 
       self
