@@ -57,12 +57,12 @@ impl Robot {
       self
     }
 
-    pub fn instructions(self, instructions: &str) -> Self {
+    pub fn instructions(mut self, instructions: &str) -> Self {
       for c in instructions.chars() {
         match c {
-          'A' => self.advance(),
-          'R' => self.turn_right(),
-          'L' => self.turn_left(),
+          'A' => self = self.advance(),
+          'R' => self = self.turn_right(),
+          'L' => self = self.turn_left(),
           _ => println!("{}", "nothing")
         }
       }
